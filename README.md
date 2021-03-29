@@ -1,6 +1,14 @@
-# Getting Started with Create React App
+# Changing the order and visibility of columns in an Ant table
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The project uses:
+* React
+* Typescript
+* Ant Design
+* react-beautiful-dnd
+* styled-components
+* use-local-storage
+
+<hr />
 
 ## Available Scripts
 
