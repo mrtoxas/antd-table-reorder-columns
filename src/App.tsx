@@ -1,25 +1,9 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { OrderModal } from './OrderModal';
 import { Table, Button } from 'antd';
 import useLocalStorage from 'use-local-storage';
 import { Header, Wrapper } from './styled';
-
-interface ColumnsType {
-  dataIndex: string;
-  title: string;
-  order: number;
-  visible: boolean;
-}
-
-interface DataType {
-  key: string;
-  column1: string;
-  column2: string;
-  column3: string;
-  column4: string;
-  column5: string;
-  column6: string;
-}
+import { ColumnsType } from './AppTypes';
 
 const columnData = [
   {
@@ -60,7 +44,7 @@ const columnData = [
   }
 ];
 
-const data: DataType[] = [
+const data = [
   {
     key: "0",
     column1: "Data Column1",
@@ -88,56 +72,45 @@ const App: React.FC = () => {
     return objCopy;
   };
 
-  const [columns, setColumns] = useLocalStorage<ColumnsType[]>(
-    'doc_columns',
-    getOrderColumns()
-  );
+  const [columns, setColumns] = useLocalStorage<ColumnsType[]>('doc_columns', getOrderColumns());
 
-  const getColumns = useCallback(() => {
+  const getColumns = useMemo(() => {
     return columnData
-      .map((item) => {
-        const col = columns.find((e) => e.dataIndex == item.dataIndex);
-        return { ...item, visible: col!.visible, order: col!.order };
-      })
-      .filter((item) => item.visible)
-      .sort((a, b) => (a.order > b.order ? 1 : -1));
+      .reduce((acc, curVal) => {
+        const col = columns.find((e) => e.dataIndex === curVal.dataIndex);
+        if (col!.visible) acc.splice(col!.order, 0, {...curVal, visible: col!.visible, order: col!.order});
+        return acc;
+      }, [] as ColumnsType[])
   }, [columns]);
 
-  const orderModalShow = useCallback(() => {
-    setIsOrderModalVisible(true);
-  }, []);
-
-  const orderModalCancel = useCallback(() => {
-    setIsOrderModalVisible(false);
-  }, []);
+  const orderModalChangeVisible = useCallback(() => {
+    setIsOrderModalVisible(!isOrderModalVisible);
+  },[isOrderModalVisible])
 
   const updateColumns = useCallback(
-    (data: ColumnsType[]) => {
-      setColumns(data);
-    },
+    (data: ColumnsType[]) => setColumns(data),
     [setColumns]
   );
 
   return (
     <div>
       <Header>
-        <Button onClick={orderModalShow}>Customize Columns</Button>
+        <Button onClick={orderModalChangeVisible}>Customize Columns</Button>
       </Header>
       <Wrapper>
         <OrderModal
-          orderModalCancel={orderModalCancel}
+          orderModalCancel={orderModalChangeVisible}
           visible={isOrderModalVisible}
           dataSource={columns}
           defaultColumns={columnData}
           updateColumns={updateColumns}
         />
         <Table
-          columns={getColumns()}
+          columns={getColumns}
           dataSource={data}
           pagination={false}
         />
       </Wrapper>
-
     </div>
   );
 };
