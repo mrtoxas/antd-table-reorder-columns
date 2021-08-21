@@ -1,6 +1,8 @@
 # Changing the order and visibility of columns in an Ant table
 This is an example implementation, is not a plugin.
 
+![GitHub Logo](preview.png)
+
 The project uses:
 * React
 * Typescript
