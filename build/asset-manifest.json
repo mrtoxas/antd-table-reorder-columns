@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/antd-table-reorder-columns/static/css/main.e37292e3.chunk.css",
+    "main.js": "/antd-table-reorder-columns/static/js/main.d2a80a6f.chunk.js",
+    "main.js.map": "/antd-table-reorder-columns/static/js/main.d2a80a6f.chunk.js.map",
+    "runtime-main.js": "/antd-table-reorder-columns/static/js/runtime-main.590c1a28.js",
+    "runtime-main.js.map": "/antd-table-reorder-columns/static/js/runtime-main.590c1a28.js.map",
+    "static/css/2.26ca8a35.chunk.css": "/antd-table-reorder-columns/static/css/2.26ca8a35.chunk.css",
+    "static/js/2.f2bed406.chunk.js": "/antd-table-reorder-columns/static/js/2.f2bed406.chunk.js",
+    "static/js/2.f2bed406.chunk.js.map": "/antd-table-reorder-columns/static/js/2.f2bed406.chunk.js.map",
+    "static/js/3.70d3d0bf.chunk.js": "/antd-table-reorder-columns/static/js/3.70d3d0bf.chunk.js",
+    "static/js/3.70d3d0bf.chunk.js.map": "/antd-table-reorder-columns/static/js/3.70d3d0bf.chunk.js.map",
+    "index.html": "/antd-table-reorder-columns/index.html",
+    "static/css/2.26ca8a35.chunk.css.map": "/antd-table-reorder-columns/static/css/2.26ca8a35.chunk.css.map",
+    "static/css/main.e37292e3.chunk.css.map": "/antd-table-reorder-columns/static/css/main.e37292e3.chunk.css.map",
+    "static/js/2.f2bed406.chunk.js.LICENSE.txt": "/antd-table-reorder-columns/static/js/2.f2bed406.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.590c1a28.js",
+    "static/css/2.26ca8a35.chunk.css",
+    "static/js/2.f2bed406.chunk.js",
+    "static/css/main.e37292e3.chunk.css",
+    "static/js/main.d2a80a6f.chunk.js"
+  ]
+}
